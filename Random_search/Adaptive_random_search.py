@@ -1,5 +1,4 @@
 import random
-import math
 from typing import Callable, List, Tuple, Optional, Union
 
 Number = Union[int, float]
