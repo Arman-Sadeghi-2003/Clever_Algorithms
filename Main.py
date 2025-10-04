@@ -1,6 +1,7 @@
 from Random_search.Adaptive_random_search import AdaptiveRandomSearch as ARS
 from Random_search.Random_Search import RandomSearch as RS
 from Random_search.Iterated_local_search import IteratedLocalSearch as ILS
+from Random_search.Random_hill_climbing import RandomHillClimbing as RHC
 
 # Sphere function minimization
 def sphere(v):
@@ -33,7 +34,7 @@ print("Best score:", result["best_score"])
 
 print("\n\n_____________________\n\n")
 
-# Iterated local search usage sample
+# Iterated local search sample usage
 
 print("ILS:")
 
@@ -47,6 +48,20 @@ ils = ILS(sphere, bounds,
           seed=42)
 
 result = ils.run()
+
+print("Best solution:", result["best_x"])
+print("Best score:", result["best_score"])
+
+
+print("\n\n_____________________\n\n")
+
+# Random hill climbing sample usage
+
+print("RHC:")
+
+bounds = [(-5, 5), (-5, 5)]
+rhc = RHC(sphere, bounds, step_size=0.1, iterations=2000, maximize=False, seed=42)
+result = rhc.run()
 
 print("Best solution:", result["best_x"])
 print("Best score:", result["best_score"])
